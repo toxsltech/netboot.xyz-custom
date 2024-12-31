@@ -22,7 +22,7 @@ set ubuntu_iso_url http://192.168.0.1:8080/ubuntu-24.04.1-live-server-amd64.iso
 set netboot_params ip=dhcp url=${ubuntu_iso_url} || set netboot_params
 kernel http://192.168.0.1:8080/vmlinuz root=/dev/ram0 ramdisk_size=3500000 cloud-config-url=/dev/null ${netboot_params} ${install_params} initrd=initrd.magic ${cmdline}
 initrd http://192.168.0.1:8080/initrd
-imgargs vmlinuz put_kernel_img_args_here
+md5sum vmlinuz initrd
 boot || goto custom_exit
 
 :option_two
